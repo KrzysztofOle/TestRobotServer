@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899-12-30 00:00:00.000.211,C:\C++\Unit1.h=C:\C++\TestRobotServer\Unit1.h</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.211,C:\C++\Unit1.dfm=C:\C++\TestRobotServer\Unit1.dfm</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.211,C:\C++\Unit1.cpp=C:\C++\TestRobotServer\Unit1.cpp</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.423,C:\C++\Project1.cbproj=C:\C++\TestRobotServer\TestRobotServer.cbproj</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.889,=C:\C++\Unit1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
