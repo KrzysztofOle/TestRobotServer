@@ -1,0 +1,60 @@
+object RobotServer: TRobotServer
+  Left = 0
+  Top = 0
+  Caption = 'RobotServer'
+  ClientHeight = 291
+  ClientWidth = 633
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object btnStart: TButton
+    Left = 40
+    Top = 240
+    Width = 153
+    Height = 33
+    Caption = 'START'
+    TabOrder = 0
+    OnClick = btnStartClick
+  end
+  object btnStop: TButton
+    Left = 199
+    Top = 240
+    Width = 153
+    Height = 33
+    Caption = 'STOP'
+    TabOrder = 1
+    OnClick = btnStopClick
+  end
+  object btnClear: TButton
+    Left = 358
+    Top = 240
+    Width = 153
+    Height = 33
+    Caption = 'btnStart'
+    TabOrder = 2
+  end
+  object Memo1: TMemo
+    Left = 24
+    Top = 24
+    Width = 577
+    Height = 201
+    Lines.Strings = (
+      'Memo1')
+    TabOrder = 3
+  end
+  object IdTCPServer1: TIdTCPServer
+    Bindings = <>
+    DefaultPort = 0
+    ReuseSocket = rsTrue
+    OnExecute = IdTCPServer1Execute
+    Left = 552
+    Top = 232
+  end
+end
