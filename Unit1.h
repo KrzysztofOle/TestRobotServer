@@ -34,7 +34,8 @@ __published:	// IDE-managed Components
 	void __fastcall TimerCommandTimer(TObject *Sender);
 
 private:	// User declarations
-	string command;
+	String command;
+	String answer;
 public:		// User declarations
 	__fastcall TRobotServer(TComponent* Owner);
 };

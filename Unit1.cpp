@@ -57,28 +57,37 @@ void __fastcall TRobotServer::IdTCPServer1Execute(TIdContext *AContext)
 	bs = AContext->Connection->IOHandler->RecvBufferSize;
 	recCommand = AContext->Connection->IOHandler->ReadLn();
 	Memo1->Lines->Add("recive command:" + recCommand);
-	Memo1->Lines->Add("send echo: " + recCommand);
+	Memo1->Lines->Add("     send echo: " + recCommand);
 	AContext->Connection->IOHandler->WriteLn(recCommand);
 
 	// tutaj symulacja przetwarzana obrazu
 	command=recCommand;
+	answer="";
 	TimerCommand->Enabled=true;
 	while (command!="") {
 		Sleep(20);
     }
 	Sleep(100);
-	AContext->Connection->IOHandler->WriteLn("ReconError#");
+	AContext->Connection->IOHandler->WriteLn(answer);
 	AContext->Connection->Disconnect();
 }
 //---------------------------------------------------------------------------
 void __fastcall TRobotServer::btnStopClick(TObject *Sender)
 {
-    // ... before stopping the server ... send 'good bye' to all clients connected
+	// ... before stopping the server ... send 'good bye' to all clients connected
 	//BroadcastMessage('Goodbye Client ');
 
 	//IdTCPServer1->Bindings->Clear();
-	IdTCPServer1->StopListening();
+	//IdTCPServer1->StopListening();
 
+	//t i;
+
+	//r (i = 0; i < IdTCPServer1->Bindings->Count; i++) {
+	//dTCPServer1->Bindings[i].
+	//
+	while (IdTCPServer1->Bindings->Count>2){
+		Sleep(10);
+	}
     // ... stop server!
 	IdTCPServer1->Active = False;
 
@@ -139,6 +148,21 @@ void __fastcall TRobotServer::TimerCommandTimer(TObject *Sender)
 {
 	// przetwarzamy rozkaz
 	TimerCommand->Enabled=false;
+	//
+	if (command=="get#") {
+		answer="[0.1, 0.2, 0.3]#";
+		Sleep(200);
+	} else if (command=="get1#"+'\0') {
+		answer="[100.1, 100.2, 100.3]#";
+		Sleep(200);
+	} else if (command=="get2#") {
+		answer="[200.1, 200.2, 200.3]#";
+		Sleep(200);
+	} else {
+		answer="error:BadCommand#";
+		Sleep(200);
+	}
+	command="";
 
 }
 //---------------------------------------------------------------------------

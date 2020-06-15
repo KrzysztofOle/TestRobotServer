@@ -38,7 +38,7 @@
 /aiccomponents
 *.svn-base
 *.jpg
-
 *.ilc
 .svn
-/__history
+
+*.~dsk
