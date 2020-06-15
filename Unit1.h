@@ -12,6 +12,7 @@
 #include <IdContext.hpp>
 #include <IdCustomTCPServer.hpp>
 #include <IdTCPServer.hpp>
+#include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
 class TRobotServer : public TForm
 {
@@ -23,14 +24,17 @@ __published:	// IDE-managed Components
 	TMemo *Memo1;
 	TEdit *EditIP;
 	TLabel *Label1;
+	TTimer *TimerCommand;
 	void __fastcall btnStartClick(TObject *Sender);
 	void __fastcall IdTCPServer1Execute(TIdContext *AContext);
 	void __fastcall btnStopClick(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall IdTCPServer1Connect(TIdContext *AContext);
 	void __fastcall IdTCPServer1Disconnect(TIdContext *AContext);
+	void __fastcall TimerCommandTimer(TObject *Sender);
 
 private:	// User declarations
+	string command;
 public:		// User declarations
 	__fastcall TRobotServer(TComponent* Owner);
 };

@@ -43,7 +43,7 @@ void __fastcall TRobotServer::btnStartClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TRobotServer::IdTCPServer1Execute(TIdContext *AContext)
 {
-	String xxxxx;
+	String recCommand;
 	int PeerPort;
 	String PeerIP;
 	int bs;
@@ -55,12 +55,18 @@ void __fastcall TRobotServer::IdTCPServer1Execute(TIdContext *AContext)
 	//AContext->Connection->IOHandler->ReadTimeout=1000;
 	//Sleep(500);
 	bs = AContext->Connection->IOHandler->RecvBufferSize;
-	xxxxx = AContext->Connection->IOHandler->ReadLn();
-	Memo1->Lines->Add(xxxxx);
-	AContext->Connection->IOHandler->WriteLn(xxxxx);
+	recCommand = AContext->Connection->IOHandler->ReadLn();
+	Memo1->Lines->Add("recive command:" + recCommand);
+	Memo1->Lines->Add("send echo: " + recCommand);
+	AContext->Connection->IOHandler->WriteLn(recCommand);
 
 	// tutaj symulacja przetwarzana obrazu
-	Sleep(2000);
+	command=recCommand;
+	TimerCommand->Enabled=true;
+	while (command!="") {
+		Sleep(20);
+    }
+	Sleep(100);
 	AContext->Connection->IOHandler->WriteLn("ReconError#");
 	AContext->Connection->Disconnect();
 }
@@ -128,4 +134,12 @@ void __fastcall TRobotServer::IdTCPServer1Disconnect(TIdContext *AContext)
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TRobotServer::TimerCommandTimer(TObject *Sender)
+{
+	// przetwarzamy rozkaz
+	TimerCommand->Enabled=false;
+
+}
+//---------------------------------------------------------------------------
 

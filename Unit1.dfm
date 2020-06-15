@@ -83,4 +83,10 @@ object RobotServer: TRobotServer
     Left = 552
     Top = 232
   end
+  object TimerCommand: TTimer
+    Interval = 10
+    OnTimer = TimerCommandTimer
+    Left = 96
+    Top = 8
+  end
 end
